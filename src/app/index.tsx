@@ -1,9 +1,6 @@
 import './index.css'
+import { Pages } from '@/pages'
 
 export const App = () => {
-  return (
-    <>
-      <h1>Русское культурное наследие</h1>
-    </>
-  )
+  return <Pages />
 }
