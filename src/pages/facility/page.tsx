@@ -1,15 +1,10 @@
-import { type LoaderFunctionArgs, useLoaderData } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-export const facilityLoader = async ({
-  params,
-}: LoaderFunctionArgs<string>) => {
-  return params.facilityId
-}
-
-export const FacilityPage = () => {
-  const facilityId = useLoaderData()
-
+const FacilityPage = () => {
+  const { facilityId } = useParams()
   if (!facilityId) return null
 
   return <div>Facility Page {facilityId.toString()}</div>
 }
+
+export default FacilityPage
