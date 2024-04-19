@@ -30,11 +30,11 @@ export const facilities = [
 
 export const HomePage = () => (
   <main className="max-w-7xl mx-auto px-4 py-8">
-    <h1 className="text-xl xl:text-3xl font-semibold">
+    <h1 className="text-2xl font-semibold">
       <Balancer>Русское культурное наследие в Сербии</Balancer>
     </h1>
     <div className="flex items-center mt-4 bg-neutral-200 border-l-4 border-red-500 p-4">
-      <p className="xl:text-xl ">
+      <p className="font-medium">
         <Balancer>
           Ни для кого не секрет, что Россия поддерживает дружественные отношения
           с Сербией. Начало русско-сербских связей отсылает нас еще к временам
@@ -42,7 +42,7 @@ export const HomePage = () => (
         </Balancer>
       </p>
     </div>
-    <p className="xl:text-xl mt-4">
+    <p className="mt-4">
       <Balancer>
         На протяжении всей истории диалог культур не затихал, особо ярко
         проявился он в религиозной сфере. Отдельной главой и в отечественной
@@ -58,7 +58,7 @@ export const HomePage = () => (
         сотрудничество.
       </Balancer>
     </p>
-    <h2 className="text-xl xl:text-3xl font-semibold mt-8 ">Объекты</h2>
+    <h2 className="text-2xl font-semibold mt-8">Объекты</h2>
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
       {facilities.map(({ id, title, description }) => (
@@ -67,7 +67,7 @@ export const HomePage = () => (
           to={`/facility/${id}`}
           className="bg-neutral-150 border-l-4 border-red-500 bg-neutral-200 p-4"
         >
-          <h3 className="text-xl xl:text-2xl font-semibold">
+          <h3 className="text-xl font-semibold">
             <Balancer>{title}</Balancer>
           </h3>
           <p className="mt-2">

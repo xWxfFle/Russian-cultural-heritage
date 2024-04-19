@@ -21,16 +21,16 @@ export const FacilityPage = () => {
 
   return (
     <main className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-xl xl:text-3xl font-semibold">
+      <h1 className="text-2xl font-semibold">
         <Balancer>{title}</Balancer>
       </h1>
-      <p className="xl:text-xl mt-4">
+      <p className="mt-4">
         <Balancer>{description}</Balancer>
       </p>
-      <div className="w-full h-[50dvh] bg-neutral-200 mt-4  mb-8 border-l-4 border-red-500">
+      <div className="w-full h-[50dvh] bg-neutral-200 mt-4 mb-8 border-l-4 border-red-500">
         <Scene />
       </div>
-      <Link to="/" className="text-red-500 xl:text-xl font-medium">
+      <Link to="/" className="text-red-500 font-medium">
         На главную
       </Link>
     </main>
