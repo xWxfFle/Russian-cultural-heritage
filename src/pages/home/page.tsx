@@ -33,8 +33,8 @@ export const HomePage = () => (
     <h1 className="text-xl xl:text-3xl font-semibold">
       <Balancer>Русское культурное наследие в Сербии</Balancer>
     </h1>
-    <div className="flex items-center mt-4 bg-neutral-200 border-l-4 border-red-500">
-      <p className="xl:text-xl p-2">
+    <div className="flex items-center mt-4 bg-neutral-200 border-l-4 border-red-500 p-4">
+      <p className="xl:text-xl ">
         <Balancer>
           Ни для кого не секрет, что Россия поддерживает дружественные отношения
           с Сербией. Начало русско-сербских связей отсылает нас еще к временам
