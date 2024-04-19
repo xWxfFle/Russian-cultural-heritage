@@ -11,11 +11,13 @@
     "lint:fix": "eslint \"src/**/*.{js,mjs,cjs,ts,mts,jsx,tsx}\" --fix"
   },
   "dependencies": {
+    "@fontsource-variable/montserrat": "^5.0.18",
     "@react-three/drei": "^9.105.3",
     "@react-three/fiber": "^8.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
+    "react-wrap-balancer": "^1.1.0",
     "three": "^0.163.0"
   },
   "devDependencies": {
