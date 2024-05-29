@@ -1,4 +1,8 @@
 import * as Form from '@radix-ui/react-form'
+import { Link } from 'react-router-dom'
+import { createFacility } from '@/shared/api'
+
+const isFileInput = (input: HTMLInputElement) => input.type === 'file'
 
 export const CreatePage = () => {
   return (
@@ -7,9 +11,20 @@ export const CreatePage = () => {
       <Form.Root
         className="w-full"
         onSubmit={(event) => {
-          event.preventDefault()
-          const data = Object.fromEntries(new FormData(event.currentTarget))
-          console.log(data)
+          const formData = new FormData()
+          Array.from(event.currentTarget.elements).forEach((element) => {
+            const input = element as HTMLInputElement
+            if (isFileInput(input)) {
+              Array.from(input.files ?? []).forEach((file) => {
+                if (file.size > 0) {
+                  formData.append(input.name, file)
+                }
+              })
+            } else {
+              formData.append(input.name, input.value)
+            }
+          })
+          createFacility(formData)
         }}
       >
         <Form.Field className="grid mt-4" name="title">
@@ -36,7 +51,7 @@ export const CreatePage = () => {
             <input
               type="file"
               multiple
-              className="appearance-none p-2 outline-none resize-none bg-neutral-200 w-fit"
+              className="appearance-none p-2 outline-none bg-neutral-200 w-full"
             />
           </Form.Control>
         </Form.Field>
@@ -45,16 +60,19 @@ export const CreatePage = () => {
           <Form.Control asChild>
             <input
               type="file"
-              className="appearance-none p-2 outline-none resize-none bg-neutral-200 w-fit"
+              className="appearance-none p-2 outline-none bg-neutral-200 w-full"
             />
           </Form.Control>
         </Form.Field>
         <Form.Submit asChild>
-          <button className="bg-emerald-600 font-medium mt-4 text-neutral-100 p-2">
+          <button className="bg-emerald-600 font-medium my-4 text-neutral-100 p-2 w-full">
             Добавить
           </button>
         </Form.Submit>
       </Form.Root>
+      <Link to="/" className="text-emerald-600 font-medium">
+        На главную
+      </Link>
     </main>
   )
 }
