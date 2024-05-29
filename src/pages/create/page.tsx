@@ -11,6 +11,7 @@ export const CreatePage = () => {
       <Form.Root
         className="w-full"
         onSubmit={(event) => {
+          event.preventDefault()
           const formData = new FormData()
           Array.from(event.currentTarget.elements).forEach((element) => {
             const input = element as HTMLInputElement
@@ -20,11 +21,10 @@ export const CreatePage = () => {
                   formData.append(input.name, file)
                 }
               })
-            } else {
+            } else if (input.value.length > 0)
               formData.append(input.name, input.value)
-            }
           })
-          createFacility(formData)
+          createFacility(formData).then(() => window.location.reload())
         }}
       >
         <Form.Field className="grid mt-4" name="title">
@@ -61,6 +61,15 @@ export const CreatePage = () => {
             <input
               type="file"
               className="appearance-none p-2 outline-none bg-neutral-200 w-full"
+            />
+          </Form.Control>
+        </Form.Field>
+        <Form.Field className="grid mt-4" name="editor_key">
+          <Form.Label className="font-medium">Ключ</Form.Label>
+          <Form.Control asChild>
+            <input
+              className="apearance-none p-2 outline-none bg-neutral-200"
+              required
             />
           </Form.Control>
         </Form.Field>
