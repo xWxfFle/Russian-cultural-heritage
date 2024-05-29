@@ -1,20 +1,12 @@
-import {
-  createBrowserRouter,
-  RouteObject,
-  RouterProvider,
-} from 'react-router-dom'
-
-const pages = import.meta.glob<true, string, { default: RouteObject }>(
-  './**/index.tsx',
-  { eager: true },
-)
-
-const routes = Object.values(pages).map((page) => page.default)
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createRoute } from './create'
+import { facilityRoute } from './facility'
+import { homeRoute } from './home'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    children: routes,
+    children: [homeRoute, facilityRoute, createRoute],
   },
 ])
 
