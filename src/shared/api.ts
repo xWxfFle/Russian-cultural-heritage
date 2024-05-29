@@ -1,8 +1,11 @@
 export const apiUrl = import.meta.env.VITE_API_URL
 export const createFileUrl = (url: string) => `${apiUrl}static/${url}`
 
-export async function fetchApi<T>(path: string): Promise<T> {
-  const response = await fetch(`${apiUrl}${path}`)
+export async function fetchApi<T>(
+  path: string,
+  init?: RequestInit,
+): Promise<T> {
+  const response = await fetch(`${apiUrl}${path}`, init)
   return await response.json()
 }
 
@@ -24,4 +27,11 @@ export async function getFacilities() {
 
 export async function getFacility(id?: string) {
   return await fetchApi<{ facility: DetailedFacility }>(`facility/${id}`)
+}
+
+export async function createFacility(data: FormData) {
+  return await fetchApi<{ facility: Facility }>(`facility`, {
+    method: 'POST',
+    body: data,
+  })
 }

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.0.18",
+    "@radix-ui/react-form": "^0.0.3",
     "@react-three/drei": "^9.105.3",
     "@react-three/fiber": "^8.16.1",
     "embla-carousel-react": "^8.1.3",
