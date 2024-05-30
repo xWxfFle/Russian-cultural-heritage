@@ -43,7 +43,7 @@ export const FacilityPage = () => {
           <Scene model={model} />
         </div>
       )}
-      <section className="embla">
+      <section className="embla mt-4">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
             {images.map((image) => (

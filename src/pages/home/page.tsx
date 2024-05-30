@@ -13,14 +13,17 @@ export const HomePage = () => {
       <h1 className="text-2xl font-semibold">
         <Balancer>Русское культурное наследие в Сербии</Balancer>
       </h1>
-      <div className="flex items-center mt-4 bg-neutral-200 border-l-4 border-emerald-600 p-4">
-        <p className="font-medium">
-          <Balancer>
-            Ни для кого не секрет, что Россия поддерживает дружественные
-            отношения с Сербией. Начало русско-сербских связей отсылает нас еще
-            к временам Древней Руси и сербской державы Неманичей.
-          </Balancer>
-        </p>
+      <div className="flex flex-col md:flex-row gap-4 mt-4">
+        <div className="flex items-center bg-neutral-200 border-l-4 border-emerald-600 p-4 flex-grow">
+          <p className="font-medium">
+            <Balancer>
+              Ни для кого не секрет, что Россия поддерживает дружественные
+              отношения с Сербией. Начало русско-сербских связей отсылает нас
+              еще к временам Древней Руси и сербской державы Неманичей.
+            </Balancer>
+          </p>
+        </div>
+        <img src="/background.png" alt="" className="md:max-h-48" />
       </div>
       <p className="mt-4">
         <Balancer>
@@ -50,7 +53,11 @@ export const HomePage = () => {
               <Balancer>{title}</Balancer>
             </h3>
             <p className="mt-2">
-              <Balancer>{description}</Balancer>
+              <Balancer>
+                {description.length > 100
+                  ? description.slice(0, 100) + '...'
+                  : description}
+              </Balancer>
             </p>
           </Link>
         ))}
